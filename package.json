@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galileo01/reactBlog_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Galileo01/reactBlog_backend/issues"
+  },
+  "homepage": "https://github.com/Galileo01/reactBlog_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "mysql": "^2.18.1"
+  }
+}
