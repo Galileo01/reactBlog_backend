@@ -11,10 +11,7 @@ router.post('/post/add', async (req, res, next) => {
 
 router.get('/post/getAll', async (req, res, next) => {
     try {
-        const data = await db.query(`
-    SELECT Pid,title,type,keywords,'desc',updateTime 
-    FROM post
-    `);
+        const data = await db.query('SELECT Pid,title,type,keywords,`desc`,updateTime FROM post');
         res.send({
             data,
             ok: 1,

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "server": "pm2 start ./app.js --name blog_backend ",
+    "start":"node app.js",
+    "clear":"bash clear_log.sh"
   },
   "repository": {
     "type": "git",

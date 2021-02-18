@@ -3,6 +3,14 @@ const { log4js, logger } = require('./utils/logger');
 const router = require('./router');
 
 const app = express();
+//设置跨域访问
+app.all('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+    // res.header('Content-Type', 'application/json;charset=utf-8');
+    next();
+});
 //解析post 请求参数
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
