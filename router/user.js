@@ -14,17 +14,18 @@ router.get('/test', async (req, res, next) => {
     }
 });
 
-//验证用户名 密码 返回token
-router.post('/login', async (req, res, next) => {
+//验证用户名 密码 
+router.post('/user/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const data = await db.query(
             `
-            SELECT password
+            SELECT password,Uid
             FROM user
-            WHERE username=${username}
+            WHERE name="${username}"
             `
         );
+        console.log(data);
         const response = {
             data: '',
             ok: 1,
@@ -36,8 +37,9 @@ router.post('/login', async (req, res, next) => {
             response.data = '用户名或密码错误';
             response.ok = 0;
         } else {
-            response.data = 'token';
+            response.data = data[0].Uid;
         }
+        console.log(response);
         res.send(response);
     } catch (err) {
         next(err);
