@@ -1,4 +1,4 @@
 # React 博客系统 后台接口
-- express 
-- mysql
-- powerDesigner
+- express  web服务
+- mysql  持久化数据库
+- log4j  日志

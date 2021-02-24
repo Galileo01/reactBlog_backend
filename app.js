@@ -1,11 +1,19 @@
 const express = require('express');
 const { log4js, logger } = require('./utils/logger');
 const router = require('./router');
-
+const { Origins } = require('./config/express');
 const app = express();
 //设置跨域访问
 app.all('*', function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+    const referer = req.headers.referer;
+    console.log(referer, Origins[referer]);
+
+    if (Origins[referer]) {
+        logger.info(`legal referer(合法 origin):${referer} fetch`);
+        res.header('Access-Control-Allow-Origin', Origins[referer]);
+    } else {
+        logger.error(`illegal referer(非法) origin):${referer} fetch`);
+    }
     res.header('Access-Control-Allow-Headers', '*');
     res.header('Access-Control-Allow-Methods', '*');
     // res.header('Content-Type', 'application/json;charset=utf-8');

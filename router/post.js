@@ -1,17 +1,13 @@
 const router = require('express').Router();
 const db = require('../utils/connect');
+const { translate } = require('../utils/utils');
 //添加 帖子
 router.post('/post/add', async (req, res, next) => {
     try {
         const { title, type, keywords, content, desc } = req.body;
-        let str = content.replace('`', '`');
-        str = str.replace("'", "'");
-        str = str.replace('\r', '');
-        str = str.replace('?', '?');
-        str = str.replace(':', ':');
-        str = str.replace('\r', 'CHAR(10)');
-        str = str.replace('\n', 'CHAR(13)');
-        console.log(content);
+        //执行sql 之前 转义特殊字符
+        const str = translate(content);
+        // console.log(content);
         const result = await db.query(`
          INSERT INTO post
          VALUES (
@@ -96,8 +92,9 @@ router.get('/post/query', async (req, res, next) => {
 
 router.get('/post/getAll', async (req, res, next) => {
     try {
+        //获取并按照 更新时间 排序
         const data = await db.query(
-            'SELECT Pid,title,type,keywords,`desc`,updateTime FROM post'
+            'SELECT Pid,title,type,keywords,`desc`,updateTime FROM post ORDER BY updateTime DESC'
         );
         res.send({
             data,
@@ -134,7 +131,10 @@ router.get('/post/getByPid', async (req, res, next) => {
         WHERE Pid=${Pid}
         `);
         res.send({
-            data,
+            data:{
+                ...data[0],
+                content:translate(data[0].content,2)//返回之前 转义回去
+            },
             ok: 1,
         });
     } catch (err) {
