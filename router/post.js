@@ -46,12 +46,17 @@ router.post('/post/update', async (req, res, next) => {
         const result = await db.query(`
         UPDATE post
         SET 
-        content='${content}',
-        type=${type},
-        keywords='${keywords}',
-        des='${desc}'
+            title='${title}',
+            content='${content}',
+            type=${type},
+            keywords='${keywords}',
+            post.desc='${desc}'
         WHERE Pid=${Pid}
         `);
+        res.send({
+            data:result,
+            ok:1
+        })
     } catch (err) {
         next(err);
     }
@@ -112,6 +117,7 @@ router.get('/post/getByType', async (req, res, next) => {
     SELECT * 
     FROM post
     WHERE type=${type}
+    ORDER BY updateTime DESC
     `);
         res.send({
             data,

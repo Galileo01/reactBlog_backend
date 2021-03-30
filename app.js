@@ -8,12 +8,13 @@ app.all('*', function (req, res, next) {
     const referer = req.headers.referer;
     console.log(referer, Origins[referer]);
 
-    if (Origins[referer]) {
-        logger.info(`legal referer(合法 origin):${referer} fetch`);
-        res.header('Access-Control-Allow-Origin', Origins[referer]);
-    } else {
-        logger.error(`illegal referer(非法) origin):${referer} fetch`);
-    }
+    // if (Origins[referer]) {
+    //     logger.info(`legal referer(合法 origin):${referer} fetch`);
+    //     res.header('Access-Control-Allow-Origin', Origins[referer]);
+    // } else {
+    //     logger.error(`illegal referer(非法) origin):${referer} fetch`);
+    // }
+    res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Headers', '*');
     res.header('Access-Control-Allow-Methods', '*');
     // res.header('Content-Type', 'application/json;charset=utf-8');
