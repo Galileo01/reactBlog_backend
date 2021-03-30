@@ -51,12 +51,13 @@ router.post('/post/update', async (req, res, next) => {
             type=${type},
             keywords='${keywords}',
             post.desc='${desc}'
+            updateTime=now()
         WHERE Pid=${Pid}
         `);
         res.send({
-            data:result,
-            ok:1
-        })
+            data: result,
+            ok: 1,
+        });
     } catch (err) {
         next(err);
     }
@@ -99,7 +100,7 @@ router.get('/post/getAll', async (req, res, next) => {
     try {
         //获取并按照 更新时间 排序
         const data = await db.query(
-            'SELECT Pid,title,type,keywords,`desc`,updateTime FROM post ORDER BY updateTime DESC'
+            'SELECT Pid,title,type,keywords,`desc`,readCount,updateTime FROM post ORDER BY updateTime DESC'
         );
         res.send({
             data,
@@ -137,15 +138,51 @@ router.get('/post/getByPid', async (req, res, next) => {
         WHERE Pid=${Pid}
         `);
         res.send({
-            data:{
+            data: {
                 ...data[0],
-                content:translate(data[0].content,2)//返回之前 转义回去
+                content: translate(data[0].content, 2), //返回之前 转义回去
             },
             ok: 1,
         });
     } catch (err) {
         next(err);
     }
+});
+
+router.get('/post/getByPid', async (req, res, next) => {
+    try {
+        const { Pid } = req.query;
+        const data = await db.query(`
+        SELECT *
+        FROM post 
+        WHERE Pid=${Pid}
+        `);
+        res.send({
+            data: {
+                ...data[0],
+                content: translate(data[0].content, 2), //返回之前 转义回去
+            },
+            ok: 1,
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
+//新增 帖子的 阅读次数
+router.post('/post/increCount', async (req, res, next) => {
+    const { Pid } = req.body;
+    const data = await db.query(`
+    UPDATE post
+    SET
+        readCount=readCount+1
+    WHERE Pid=${Pid}
+    `);
+    const { affectedRows } = data;
+    res.send({
+        data: affectedRows === 1 ? Pid : 'no such Pid',
+        ok: affectedRows,
+    });
 });
 
 module.exports = router;
