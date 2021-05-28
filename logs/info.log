@@ -12547,3 +12547,127 @@
 [2021-05-28T17:00:30.122] [ERROR] default - GET /  404  1 ms
 [2021-05-28T17:03:17.925] [INFO] default - 获取连接
 [2021-05-28T17:03:18.009] [INFO] default - GET /post/getAll  200  111 ms
+[2021-05-28T17:56:16.812] [ERROR] default - GET /login  404  16 ms
+[2021-05-28T18:05:50.279] [ERROR] default - GET /login  404  17 ms
+[2021-05-28T18:06:17.590] [ERROR] default - GET /user/login  404  1 ms
+[2021-05-28T18:06:36.074] [ERROR] default - GET /user/test  404  7 ms
+[2021-05-28T18:07:48.429] [INFO] default - 获取连接
+[2021-05-28T18:07:48.492] [ERROR] default - Error: ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+    at Query.Sequence._packetToError (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Protocol._enqueue (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at PoolConnection.query (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at /home/admin/projects/reactBlog/backend/utils/connect.js:40:29
+    at Handshake.onConnect (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Handshake._callback (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:488:16)
+    at Handshake.Sequence.end (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Handshake.Sequence.OkPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:92:8)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'undefined' in 'where clause'",
+  sqlState: '42S22',
+  index: 0,
+  sql: '\n        SELECT *\n        FROM post\n        where type=undefined \n        '
+}
+[2021-05-28T18:07:48.495] [ERROR] default - GET /post/query  500  163 ms
+[2021-05-28T18:08:41.482] [INFO] default - 获取连接
+[2021-05-28T18:08:41.487] [ERROR] default - Error: ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+    at Query.Sequence._packetToError (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Protocol._enqueue (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at PoolConnection.query (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at /home/admin/projects/reactBlog/backend/utils/connect.js:40:29
+    at Ping.onOperationComplete (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Pool.js:110:5)
+    at Ping.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Ping._callback (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:488:16)
+    at Ping.Sequence.end (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Ping.Sequence.OkPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:92:8)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'undefined' in 'where clause'",
+  sqlState: '42S22',
+  index: 0,
+  sql: '\n        SELECT *\n        FROM post\n        where type=undefined \n        '
+}
+[2021-05-28T18:08:41.490] [ERROR] default - GET /post/query  500  10 ms
+[2021-05-28T18:09:24.433] [INFO] default - 获取连接
+[2021-05-28T18:09:24.438] [ERROR] default - Error: ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'
+    at Query.Sequence._packetToError (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:314:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Protocol._enqueue (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at PoolConnection.query (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at /home/admin/projects/reactBlog/backend/utils/connect.js:40:29
+    at Ping.onOperationComplete (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Pool.js:110:5)
+    at Ping.<anonymous> (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Ping._callback (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/Connection.js:488:16)
+    at Ping.Sequence.end (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Ping.Sequence.OkPacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:92:8)
+    at Protocol._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/home/admin/projects/reactBlog/backend/node_modules/mysql/lib/protocol/Parser.js:433:10) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'undefined' in 'where clause'",
+  sqlState: '42S22',
+  index: 0,
+  sql: '\n        SELECT *\n        FROM post\n        where type=undefined \n        '
+}
+[2021-05-28T18:09:24.443] [ERROR] default - GET /post/query  500  14 ms
+[2021-05-28T18:09:57.026] [INFO] default - 获取连接
+[2021-05-28T18:09:57.052] [INFO] default - GET /post/query?keyword=react&type=all  200  26 ms
+[2021-05-28T18:10:18.209] [INFO] default - 获取连接
+[2021-05-28T18:10:18.215] [INFO] default - GET /post/query?keyword=XX&type=all  200  5 ms
+[2021-05-28T18:10:49.230] [INFO] default - 获取连接
+[2021-05-28T18:10:49.238] [INFO] default - GET /post/query?keyword=react&type=all  200  9 ms
+[2021-05-28T18:11:30.588] [INFO] default - OPTIONS /user/login  200  2 ms
+[2021-05-28T18:11:30.688] [INFO] default - 获取连接
+[2021-05-28T18:11:30.699] [INFO] default - POST /user/login  200  12 ms
+[2021-05-28T18:11:31.273] [INFO] default - 获取连接
+[2021-05-28T18:11:31.287] [WARN] default - GET /post/query?type=all&keyword=&offset=0&limit=15  304  15 ms
+[2021-05-28T18:11:34.812] [INFO] default - 获取连接
+[2021-05-28T18:11:34.818] [INFO] default - GET /post/query?type=all&keyword=xxx&offset=0&limit=15  200  7 ms
+[2021-05-28T18:11:39.018] [INFO] default - 获取连接
+[2021-05-28T18:11:39.023] [WARN] default - GET /post/query?type=all&keyword=XX&offset=0&limit=15  304  6 ms
+[2021-05-28T18:11:50.544] [INFO] default - 获取连接
+[2021-05-28T18:11:50.550] [INFO] default - GET /post/query?keyword=XX&type=all  200  5 ms
+[2021-05-28T18:12:15.750] [INFO] default - 获取连接
+[2021-05-28T18:12:15.755] [INFO] default - GET /post/query?keyword=XX&type=all&limit=14  200  6 ms
+[2021-05-28T18:12:27.153] [INFO] default - 获取连接
+[2021-05-28T18:12:27.158] [INFO] default - GET /post/query?keyword=XX&type=all&limit=14&offet=0  200  5 ms
+[2021-05-28T18:12:39.353] [INFO] default - 获取连接
+[2021-05-28T18:12:39.358] [WARN] default - GET /post/query?type=all&keyword=XX&offset=0&limit=15  304  6 ms
+[2021-05-28T18:13:43.651] [INFO] default - 获取连接
+[2021-05-28T18:13:43.695] [WARN] default - GET /post/query?type=all&keyword=&offset=0&limit=15  304  47 ms
+[2021-05-28T18:13:48.375] [INFO] default - 获取连接
+[2021-05-28T18:13:48.380] [INFO] default - GET /post/getByPid?Pid=13  200  7 ms
