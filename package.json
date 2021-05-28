@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "server": "pm2 start ./app.js --name blog_backend ",
+    "pm2": "pm2 start ./app.js --name blog_backend ",
     "start": "node app.js",
     "clear": "bash clear_log.sh",
-    "push":"scp -r * admin@121.41.225.12:/home/admin/projects/reactBlog/backend"
+    "push": "scp -r * admin@121.41.225.12:/home/admin/projects/reactBlog/backend"
   },
   "repository": {
     "type": "git",
